@@ -1,8 +1,8 @@
 import { useState } from "react"
 import {createUserWithEmailAndPassword} from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../tools/firebase";
 
-function Regist () {
+function Regist (props) {
   
   const [data, setData] = useState ({
     email:'', //아이디
@@ -17,7 +17,6 @@ function Regist () {
     termsAgreed : false, //이용약관 동의여부
     privacyAgreed : false,  //개인정보 처리방침 동의여부
   });
-
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -58,6 +57,7 @@ function Regist () {
       data.email,
       data.password
     );
+   
     console.log('회원가입성공',userCredit.user);
     alert('회원가입이 완료되었습니다.');
   }
@@ -67,8 +67,6 @@ function Regist () {
   }
 }
 
-  
- 
   return(
      <form onSubmit={valid}>
       <div>

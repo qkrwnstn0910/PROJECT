@@ -1,5 +1,5 @@
 .app-background {
-  background-image: url(C:\02WorkSpaces\Project\reactapp-project-joonsoo\image\1.jpg);
+  background-image: url('/image/1.jpg');
   background-size: 900px;      /* 화면 꽉 채우기 */
   background-position: center; /* 가운데 정렬 */
   background-repeat: no-repeat;

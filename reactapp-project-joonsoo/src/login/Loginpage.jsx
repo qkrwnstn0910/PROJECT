@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../tools/firebase";
+import { useNavigate } from "react-router-dom";
 export default function Loginpage () {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async(e) => {
     e.preventDefault();
@@ -17,7 +19,10 @@ export default function Loginpage () {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log("로그인 성공:", userCredential.user);
       alert("로그인 성공!");
-      // 로그인 후 이동 처리 예: navigate("/dashboard")
+      console.log("이동 전 navigate 호출:", "/mainpage");
+      navigate("/mainpage");
+    
+      
     } catch (error) {
       console.error("로그인 실패:", error);
       alert("로그인 실패: " + error.message);
